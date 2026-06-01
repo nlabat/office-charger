@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Charger Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen">
+        <div class="login-container">
+            <h1>🔌 Office Charger System</h1>
+            <p>Sign in to manage charger usage</p>
+            <input type="email" id="email" placeholder="Work email" />
+            <input type="password" id="password" placeholder="Password" />
+            <button id="login-btn">Sign In</button>
+            <button id="register-btn" class="secondary">Register</button>
+            <p id="auth-error" class="error"></p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" style="display:none;">
+        <header>
+            <h1>🔌 Office Charger Dashboard</h1>
+            <div class="header-right">
+                <span id="user-email"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-number" id="available-count">0</span>
+                <span class="stat-label">Available</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="in-use-count">0</span>
+                <span class="stat-label">In Use</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="queue-count">0</span>
+                <span class="stat-label">In Queue</span>
+            </div>
+        </div>
+
+        <!-- Charger Grid -->
+        <div class="charger-grid" id="charger-grid">
+            <!-- Chargers will be rendered here by JS -->
+        </div>
+
+        <!-- Queue Section -->
+        <div class="queue-section">
+            <h2>📋 Waiting Queue</h2>
+            <button id="join-queue-btn">Join Queue</button>
+            <button id="leave-queue-btn" style="display:none;">Leave Queue</button>
+            <div id="queue-list"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
