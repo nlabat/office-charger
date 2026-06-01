@@ -333,4 +333,26 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeMapModal();
     }
+    // ===== MAP MODAL =====
+function openMapModal() {
+    document.getElementById('map-modal').style.display = 'flex';
+}
+
+function closeMapModal() {
+    document.getElementById('map-modal').style.display = 'none';
+}
+
+// Close when clicking outside the popup
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'map-modal') {
+        closeMapModal();
+    }
+});
+
+// Close with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeMapModal();
+    }
+});
 });
