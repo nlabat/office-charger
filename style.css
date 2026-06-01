@@ -278,4 +278,7 @@ header {
     .stats-bar {
         gap: 20px;
     }
+    #register-btn {
+    display: none;
+}
 }
