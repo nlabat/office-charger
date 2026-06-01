@@ -311,3 +311,26 @@ setInterval(async () => {
         }
     }
 }, 60000); // Check every minute
+// ===== MAP MODAL =====
+function openMapModal() {
+    document.getElementById('map-modal').style.display = 'flex';
+}
+
+function closeMapModal() {
+    document.getElementById('map-modal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('map-modal');
+    if (e.target === modal) {
+        closeMapModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeMapModal();
+    }
+});
