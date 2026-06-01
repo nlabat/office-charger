@@ -1,12 +1,12 @@
 // 🔥 SAME FIREBASE CONFIG AS auth.js
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+   apiKey: "AIzaSyAzoOCUHaQ9Q0YtKIgx4V-GLT4Lh2RWTCk",
+    authDomain: "office-charger-system.firebaseapp.com",
+    databaseURL: "https://office-charger-system-default-rtdb.firebaseio.com",
+    projectId: "office-charger-system",
+    storageBucket: "office-charger-system.firebasestorage.app",
+    messagingSenderId: "443745620284",
+    appId: "1:443745620284:web:54d41c3f9a0af798cb8e39"
 };
 
 // Initialize Firebase
