@@ -311,3 +311,33 @@ setInterval(async () => {
         }
     }
 }, 60000); // Check every minute
+// ===== DARK/LIGHT MODE TOGGLE =====
+function toggleTheme() {
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    body.classList.toggle('light-mode');
+
+    if (body.classList.contains('light-mode')) {
+        toggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+    } else {
+        toggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Load saved theme on page load
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        if (toggleBtn) toggleBtn.textContent = '☀️';
+    }
+}
+
+// Call on page load
+loadSavedTheme();
+}
