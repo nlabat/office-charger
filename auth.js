@@ -1,12 +1,12 @@
 // 🔥 REPLACE WITH YOUR FIREBASE CONFIG
 const firebaseConfig = {
-	apiKey: "AIzaSyAzoOCUHaQ9Q0YtKIgx4V-GLT4Lh2RWTCk",
-    authDomain: "office-charger-system.firebaseapp.com",
-    databaseURL: "https://office-charger-system-default-rtdb.firebaseio.com",
-    projectId: "office-charger-system",
-    storageBucket: "office-charger-system.firebasestorage.app",
-    messagingSenderId: "443745620284",
-    appId: "1:443745620284:web:54d41c3f9a0af798cb8e39"
+  apiKey: "AIzaSyAzoOCUHaQ9Q0YtKIgx4V-GLT4Lh2RWTCk",
+  authDomain: "office-charger-system.firebaseapp.com",
+  databaseURL: "https://office-charger-system-default-rtdb.firebaseio.com",
+  projectId: "office-charger-system",
+  storageBucket: "office-charger-system.firebasestorage.app",
+  messagingSenderId: "443745620284",
+  appId: "1:443745620284:web:54d41c3f9a0af798cb8e39"
 };
 
 // Initialize Firebase
