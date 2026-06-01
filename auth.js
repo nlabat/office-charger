@@ -68,10 +68,44 @@ auth.onAuthStateChanged((user) => {
     if (user) {
         loginScreen.style.display = 'none';
         dashboard.style.display = 'block';
-        userEmailSpan.textContent = user.email;
+
+        // Check if user has a display name set
+        db.ref(`users/${user.uid}`).once('value', (snapshot) => {
+            const userData = snapshot.val();
+
+            if (!userData || !userData.displayName) {
+                // First time user - show name modal
+                document.getElementById('name-modal').style.display = 'block';
+            } else {
+                userEmailSpan.textContent = userData.displayName;
+            }
+        });
+
         initDashboard(user);
     } else {
         loginScreen.style.display = 'flex';
         dashboard.style.display = 'none';
     }
+});
+
+// Save Display Name
+document.getElementById('save-name-btn').addEventListener('click', async () => {
+    const name = document.getElementById('display-name-input').value.trim();
+
+    if (!name) {
+        alert('Please enter your name');
+        return;
+    }
+
+    const user = auth.currentUser;
+
+    await db.ref(`users/${user.uid}`).set({
+        displayName: name,
+        email: user.email,
+        createdAt: Date.now()
+    });
+
+    document.getElementById('name-modal').style.display = 'none';
+    userEmailSpan.textContent = name;
+});
 });
