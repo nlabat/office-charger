@@ -311,3 +311,15 @@ setInterval(async () => {
         }
     }
 }, 60000); // Check every minute
+// Force re-sync data every 15 seconds (no page flash)
+setInterval(() => {
+    db.ref('chargers').once('value', (snapshot) => {
+        const chargers = snapshot.val();
+        renderChargers(chargers);
+        updateStats(chargers);
+    });
+
+    db.ref('queue').once('value', (snapshot) => {
+        // Queue listener already handles this
+    });
+}, 15000);
