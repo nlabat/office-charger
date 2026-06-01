@@ -281,4 +281,103 @@ header {
     #register-btn {
     display: none;
 }
+/* MAP SECTION */
+.map-section {
+    display: flex;
+    justify-content: center;
+    padding: 15px 40px;
 }
+
+#show-map-btn {
+    padding: 10px 24px;
+    background: #0f3460;
+    color: #eee;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#show-map-btn:hover {
+    background: #3498db;
+    color: white;
+}
+
+/* MAP MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #16213e;
+    border-radius: 12px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow: auto;
+    border: 1px solid #333;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #333;
+}
+
+.modal-header h2 {
+    font-size: 18px;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #eee;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.modal-close:hover {
+    background: #e74c3c;
+}
+
+.modal-body {
+    padding: 24px;
+    text-align: center;
+}
+
+.map-image {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.map-caption {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+    }
+
+    .map-section {
+        padding: 10px 20px;
+    }
+}}
