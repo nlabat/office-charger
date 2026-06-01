@@ -30,10 +30,10 @@
             </div>
             <h1>🔌 Office Charger Dashboard</h1>
                 <div class="header-right">
-    <a href="admin.html" style="color: #aaa; text-decoration: none; margin-right: 15px;">🔒 Admin</a>
-    <span id="user-email" class="user-name-display"></span>
-    <button id="logout-btn">Logout</button>
-</div>
+                <a href="admin.html" style="color: #aaa; text-decoration: none; margin-right: 15px;">🔒 Admin</a>
+                <span id="user-email"></span>
+                <button id="logout-btn">Logout</button>
+    </div>
         </header>
 
         <!-- Stats Bar -->
@@ -65,33 +65,12 @@
             <div id="queue-list"></div>
         </div>
     </div>
-<!-- Name Setup Modal -->
-<div id="name-modal" style="display:none;">
-    <div class="modal-overlay">
-        <div class="modal-content">
-            <h2>👋 Welcome! Set Your Display Name</h2>
-            <p>This will be shown on the dashboard when you're charging.</p>
-            <input type="text" id="display-name-input" placeholder="e.g. John Smith" />
-            <button id="save-name-btn">Save Name</button>
-        </div>
-    </div>
-</div>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
     <script src="auth.js"></script>
     <script src="app.js"></script>
-    <!-- Name Setup Modal -->
-<div id="name-modal" style="display:none;">
-    <div class="modal-overlay">
-        <div class="modal-content">
-            <h2>👋 Welcome! Set Your Display Name</h2>
-            <p>This will be shown on the dashboard when you're charging.</p>
-            <input type="text" id="display-name-input" placeholder="e.g. John Smith" />
-            <button id="save-name-btn">Save Name</button>
-        </div>
-    </div>
-</div>
 </body>
 </html>

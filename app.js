@@ -84,9 +84,9 @@ function renderChargers(chargers) {
                 </span>
             </div>
             <div class="charger-info">
-             ${charger.status === 'in-use' ? `
-                <p>👤 ${charger.userName || charger.userEmail || 'Unknown'}</p>
-                <p>⏱️ Started: ${timeInfo}</p>
+                ${charger.status === 'in-use' ? `
+                    <p>👤 ${charger.userEmail || 'Unknown'}</p>
+                    <p>⏱️ Started: ${timeInfo}</p>
                 ` : '<p>Ready to use</p>'}
             </div>
             ${charger.status === 'available' ? `
@@ -122,20 +122,12 @@ async function startCharging(chargerKey) {
     await removeFromQueue(currentUser.uid);
 
     // Start charging
-  // Get user display name
-const userSnap = await db.ref(`users/${currentUser.uid}`).once('value');
-const userData = userSnap.val();
-const displayName = userData ? userData.displayName : currentUser.email;
-
-// Start charging
-await db.ref(`chargers/${chargerKey}`).update({
-    status: 'in-use',
-    user: currentUser.uid,
-    userEmail: currentUser.email,
-    userName: displayName,
-    startTime: Date.now()
-});
-
+    await db.ref(`chargers/${chargerKey}`).update({
+        status: 'in-use',
+        user: currentUser.uid,
+        userEmail: currentUser.email,
+        startTime: Date.now()
+    });
 }
 
 // Stop charging
@@ -227,18 +219,11 @@ async function joinQueue() {
     }
 
     // Add to queue
-    // Get user display name
-const userSnap2 = await db.ref(`users/${currentUser.uid}`).once('value');
-const userData2 = userSnap2.val();
-const queueName = userData2 ? userData2.displayName : currentUser.email;
-
-// Add to queue
-await db.ref('queue').push({
-    userId: currentUser.uid,
-    email: currentUser.email,
-    userName: queueName,
-    joinedAt: Date.now()
-});
+    await db.ref('queue').push({
+        userId: currentUser.uid,
+        email: currentUser.email,
+        joinedAt: Date.now()
+    });
 }
 
 async function removeFromQueue(userId) {
@@ -270,15 +255,15 @@ function listenToQueue() {
         // Render queue
         queueList.innerHTML = '';
         entries.forEach((entry, index) => {
-    const item = document.createElement('div');
-    item.className = 'queue-item';
-    item.innerHTML = `
-        <span class="queue-position">#${index + 1}</span>
-        <span>${entry.userName || entry.email}</span>
-        <span>${getTimeElapsed(entry.joinedAt)} in queue</span>
-    `;
-    queueList.appendChild(item);
-});
+            const item = document.createElement('div');
+            item.className = 'queue-item';
+            item.innerHTML = `
+                <span class="queue-position">#${index + 1}</span>
+                <span>${entry.email}</span>
+                <span>${getTimeElapsed(entry.joinedAt)} in queue</span>
+            `;
+            queueList.appendChild(item);
+        });
     });
 }
 
@@ -326,15 +311,3 @@ setInterval(async () => {
         }
     }
 }, 60000); // Check every minute
-// Force re-sync data every 15 seconds (no page flash)
-setInterval(() => {
-    db.ref('chargers').once('value', (snapshot) => {
-        const chargers = snapshot.val();
-        renderChargers(chargers);
-        updateStats(chargers);
-    });
-
-    db.ref('queue').once('value', (snapshot) => {
-        // Queue listener already handles this
-    });
-}, 15000);
