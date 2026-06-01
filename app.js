@@ -131,7 +131,26 @@ async function startCharging(chargerKey) {
 }
 
 // Stop charging
+// Stop charging
 async function stopCharging(chargerKey) {
+    // Get charger info for history
+    const snap = await db.ref(`chargers/${chargerKey}`).once('value');
+    const charger = snap.val();
+
+    // Save to history
+    if (charger.user) {
+        await db.ref('history').push({
+            userId: charger.user,
+            userEmail: charger.userEmail,
+            chargerKey: chargerKey,
+            chargerName: charger.name,
+            startTime: charger.startTime,
+            endTime: Date.now(),
+            forceStopped: false
+        });
+    }
+
+    // Reset charger
     await db.ref(`chargers/${chargerKey}`).update({
         status: 'available',
         user: null,
