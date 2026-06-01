@@ -311,3 +311,25 @@ setInterval(async () => {
         }
     }
 }, 60000); // Check every minute
+// ===== PARKING MAP MODAL =====
+function openParkingMap() {
+    document.getElementById('parking-map-modal').style.display = 'flex';
+}
+
+function closeParkingMap() {
+    document.getElementById('parking-map-modal').style.display = 'none';
+}
+
+// Close when clicking outside
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'parking-map-modal') {
+        closeParkingMap();
+    }
+});
+
+// Close with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeParkingMap();
+    }
+});
