@@ -281,4 +281,65 @@ header {
     #register-btn {
     display: none;
 }
+    /* NAME MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #16213e;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    width: 400px;
+    max-width: 90%;
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background: #0f3460;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* USER NAME IN HEADER */
+.user-name-display {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-right: 8px;
+}
 }
