@@ -33,19 +33,6 @@
                 <a href="admin.html" style="color: #aaa; text-decoration: none; margin-right: 15px;">🔒 Admin</a>
                 <span id="user-email"></span>
                 <button id="logout-btn">Logout</button>
-                    <!-- Map Modal -->
-<div id="map-modal" class="modal-overlay" style="display:none;">
-    <div class="modal-popup">
-        <div class="modal-popup-header">
-            <h2>🗺️ Charger Locations</h2>
-            <button class="modal-close-btn" onclick="closeMapModal()">✕</button>
-        </div>
-        <div class="modal-popup-body">
-            <img src="charger-map.png" alt="Charger Location Map" class="map-image" />
-            <p class="map-caption">Charger locations in the parking area</p>
-        </div>
-    </div>
-</div>
     </div>
         </header>
 
@@ -64,31 +51,7 @@
                 <span class="stat-label">In Queue</span>
             </div>
         </div>
-<!-- Stats Bar -->
-<div class="stats-bar">...</div>
-<!-- Map Button (right-aligned, above chargers) -->
-<div class="section-header">
-    <h2>⚡ Chargers</h2>
-    <button class="map-icon-btn" onclick="openMapModal()" title="View charger location map">
-        🗺️
-    </button>
-</div>
 
-<!-- Map Modal (popup overlay) -->
-<div id="map-modal" class="modal-overlay" style="display:none;">
-    <div class="modal-popup">
-        <div class="modal-popup-header">
-            <h2>🗺️ Charger Locations</h2>
-            <button class="modal-close-btn" onclick="closeMapModal()">✕</button>
-        </div>
-        <div class="modal-popup-body">
-            <img src="charger-map.png" alt="Charger Location Map" class="map-image" />
-            <p class="map-caption">Charger locations in the parking area</p>
-        </div>
-    </div>
-</div
-<!-- Charger Grid -->
-<div class="charger-grid" id="charger-grid">...</div>
         <!-- Map/Guidance Button -->
 <div class="map-section">
     <button id="show-map-btn" onclick="openMapModal()">
