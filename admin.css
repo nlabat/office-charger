@@ -1,0 +1,319 @@
+/* ADMIN SPECIFIC STYLES */
+
+.back-link {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* TABS */
+.admin-tabs {
+    display: flex;
+    gap: 0;
+    padding: 0 40px;
+    background: #16213e;
+    border-bottom: 1px solid #333;
+}
+
+.tab-btn {
+    padding: 15px 24px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 14px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    color: #fff;
+    border-bottom-color: #3498db;
+}
+
+.tab-btn:hover {
+    color: #fff;
+}
+
+/* TAB CONTENT */
+.tab-content {
+    display: none;
+    padding: 30px 40px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ADMIN ACTIONS */
+.admin-actions {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    background: #3498db;
+    color: white;
+}
+
+.action-btn.danger {
+    background: #e74c3c;
+}
+
+.action-btn:hover {
+    opacity: 0.9;
+}
+
+/* ADMIN CHARGER GRID */
+.admin-charger-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.admin-charger-card {
+    background: #16213e;
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #333;
+}
+
+.admin-charger-card.available {
+    border-color: #4CAF50;
+}
+
+.admin-charger-card.in-use {
+    border-color: #ff9800;
+}
+
+.admin-charger-card.out-of-order {
+    border-color: #e74c3c;
+}
+
+.admin-charger-card h3 {
+    margin-bottom: 8px;
+}
+
+.admin-charger-card .info {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.admin-charger-card .info p {
+    margin-bottom: 4px;
+}
+
+.admin-charger-card .admin-card-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.admin-charger-card .admin-card-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-free {
+    background: #4CAF50;
+    color: white;
+}
+
+.btn-disable {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-enable {
+    background: #4CAF50;
+    color: white;
+}
+
+/* QUEUE ADMIN */
+.admin-queue-item {
+    background: #0f3460;
+    padding: 14px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-queue-item button {
+    padding: 6px 12px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* HISTORY TABLE */
+.history-filters {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.history-filters input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #0f3460;
+    color: white;
+}
+
+.history-filters button {
+    padding: 8px 16px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.history-table th {
+    background: #0f3460;
+    color: #3498db;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.history-table td {
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* SETTINGS */
+.settings-section {
+    background: #16213e;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.settings-section h3 {
+    margin-bottom: 16px;
+    color: #3498db;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.setting-item label {
+    color: #aaa;
+    min-width: 200px;
+}
+
+.setting-item input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #0f3460;
+    color: white;
+    width: 200px;
+}
+
+.setting-item button {
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.rename-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.rename-item label {
+    color: #aaa;
+    min-width: 80px;
+}
+
+.rename-item input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #0f3460;
+    color: white;
+    flex: 1;
+}
+
+#admin-list .admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #0f3460;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+#admin-list .admin-item button {
+    padding: 6px 12px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .admin-tabs {
+        padding: 0 10px;
+        overflow-x: auto;
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+
+    .admin-charger-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
