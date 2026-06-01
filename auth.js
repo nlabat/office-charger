@@ -20,7 +20,7 @@ const dashboard = document.getElementById('dashboard');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const loginBtn = document.getElementById('login-btn');
-const registerBtn = document.getElementById('register-btn');
+// const registerBtn = document.getElementById('register-btn');
 const logoutBtn = document.getElementById('logout-btn');
 const authError = document.getElementById('auth-error');
 const userEmailSpan = document.getElementById('user-email');
@@ -39,22 +39,24 @@ loginBtn.addEventListener('click', async () => {
 });
 
 // Register
-registerBtn.addEventListener('click', async () => {
-    const email = emailInput.value;
-    const password = passwordInput.value;
+// registerBtn.addEventListener('click', async () => {
+//    const email = emailInput.value;
+//    const password = passwordInput.value;
 
-    if (password.length < 6) {
-        authError.textContent = 'Password must be at least 6 characters';
-        return;
-    }
 
-    try {
-        await auth.createUserWithEmailAndPassword(email, password);
-        authError.textContent = '';
-    } catch (error) {
-        authError.textContent = error.message;
-    }
-});
+//    if (password.length < 6) {
+//        authError.textContent = 'Password must be at least 6 characters';
+//        return;
+//    }
+
+
+//    try {
+//        await auth.createUserWithEmailAndPassword(email, password);
+//        authError.textContent = '';
+//    } catch (error) {
+//        authError.textContent = error.message;
+//    }
+//});
 
 // Logout
 logoutBtn.addEventListener('click', () => {
