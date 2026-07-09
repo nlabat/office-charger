@@ -20,20 +20,34 @@
         </div>
     </div>
 
-    <!-- Main Dashboard -->
+    <!-- Main  -->
     <div id="dashboard" style="display:none;">
         <header>
             <h1>🔌 Office Charger Dashboard</h1>
             <div class="header-right">
-                <span id="user-email"></span>
-                <button id="logout-btn">Logout</button>
-            </div>
-            <h1>🔌 Office Charger Dashboard</h1>
-                <div class="header-right">
-                <a href="admin.html" style="color: #aaa; text-decoration: none; margin-right: 15px;">🔒 Admin</a>
-                <span id="user-email"></span>
-                <button id="logout-btn">Logout</button>
+    <a href="admin.html" style="color: #aaa; text-decoration: none; margin-right: 15px;">🔒 Admin</a>
+    <span id="user-email"></span>
+    <button id="change-password-btn" onclick="openChangePassword()">🔑</button>
+    <button id="logout-btn">Logout</button>
+
+                <!-- Change Password Modal -->
+<div id="password-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-popup">
+        <div class="modal-popup-header">
+            <h2>🔑 Change Password</h2>
+            <button class="modal-close-btn" onclick="closeChangePassword()">✕</button>
+        </div>
+        <div class="modal-popup-body">
+            <input type="password" id="current-password" placeholder="Current password" class="modal-input" />
+            <input type="password" id="new-password" placeholder="New password (min 6 characters)" class="modal-input" />
+            <input type="password" id="confirm-password" placeholder="Confirm new password" class="modal-input" />
+            <p id="password-error" class="error"></p>
+            <p id="password-success" class="success"></p>
+            <button class="save-password-btn" onclick="changePassword()">💾 Save New Password</button>
+        </div>
     </div>
+</div>
+</div>
         </header>
 
         <!-- Stats Bar -->
