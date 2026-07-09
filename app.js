@@ -310,4 +310,83 @@ setInterval(async () => {
             }
         }
     }
+// ===== CHANGE PASSWORD =====
+function openChangePassword() {
+    document.getElementById('password-modal').style.display = 'flex';
+    document.getElementById('password-error').textContent = '';
+    document.getElementById('password-success').textContent = '';
+    document.getElementById('current-password').value = '';
+    document.getElementById('new-password').value = '';
+    document.getElementById('confirm-password').value = '';
+}
+
+function closeChangePassword() {
+    document.getElementById('password-modal').style.display = 'none';
+}
+
+async function changePassword() {
+    const currentPassword = document.getElementById('current-password').value;
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    const errorEl = document.getElementById('password-error');
+    const successEl = document.getElementById('password-success');
+
+    errorEl.textContent = '';
+    successEl.textContent = '';
+
+    // Validation
+    if (!currentPassword || !newPassword || !confirmPassword) {
+        errorEl.textContent = 'Please fill in all fields.';
+        return;
+    }
+
+    if (newPassword.length < 6) {
+        errorEl.textContent = 'New password must be at least 6 characters.';
+        return;
+    }
+
+    if (newPassword !== confirmPassword) {
+        errorEl.textContent = 'New passwords do not match.';
+        return;
+    }
+
+    try {
+        const user = firebase.auth().currentUser;
+        const credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPassword);
+
+        // Re-authenticate user (required by Firebase before password change)
+        await user.reauthenticateWithCredential(credential);
+
+        // Update password
+        await user.updatePassword(newPassword);
+
+        successEl.textContent = '✅ Password changed successfully!';
+
+        // Clear fields
+        document.getElementById('current-password').value = '';
+        document.getElementById('new-password').value = '';
+        document.getElementById('confirm-password').value = '';
+
+        // Auto-close after 2 seconds
+        setTimeout(() => {
+            closeChangePassword();
+        }, 2000);
+
+    } catch (error) {
+        if (error.code === 'auth/wrong-password') {
+            errorEl.textContent = 'Current password is incorrect.';
+        } else if (error.code === 'auth/too-many-requests') {
+            errorEl.textContent = 'Too many attempts. Please try again later.';
+        } else {
+            errorEl.textContent = `Error: ${error.message}`;
+        }
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    if (e.target.id === 'password-modal') {
+        closeChangePassword();
+    }
+});
 }, 60000); // Check every minute
